@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+:root {
+  --color-black: #050608;
+  --color-charcoal: #0a0c12;
+  --color-dark-gray: #11141c;
+  --color-deep-blue: #0a1628;
+  --color-blue-atmos: #0f1c32;
+  --color-indigo-deep: #1e1b4b;
+  --color-crimson-deep: #4c0519;
+  --color-burgundy: #7f1d1d;
+  --color-magenta-muted: #701a75;
+  --color-light-gray: #8b919b;
+  --color-off-white: #f0ebe3;
+  --color-muted-red: #9f1239;
+  --color-mist: #9aa3ad;
+
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+  --font-display: var(--font-sans);
+}
+
+@theme inline {
+  --color-black: #050608;
+  --color-charcoal: #0a0c12;
+  --color-dark-gray: #11141c;
+  --color-deep-blue: #0a1628;
+  --color-blue-atmos: #0f1c32;
+  --color-indigo-deep: #1e1b4b;
+  --color-crimson-deep: #4c0519;
+  --color-burgundy: #7f1d1d;
+  --color-magenta-muted: #701a75;
+  --color-light-gray: #8b919b;
+  --color-off-white: #f0ebe3;
+  --color-muted-red: #9f1239;
+  --color-mist: #9aa3ad;
+
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 70% 10%, rgba(127,29,29,0.07) 0%, transparent 50%),
+    radial-gradient(ellipse at 30% 80%, rgba(30,27,75,0.07) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 0%, #0a1628 0%, #050608 65%);
+  color: var(--color-off-white);
+  font-family: var(--font-sans);
+}
+
+.cursor-none,
+.cursor-none * {
+  cursor: none;
+}
+
+@media (pointer: coarse) {
+  [data-cursor-root] {
+    display: none;
+  }
+}
+
+[data-cursor-root] .cursor-label {
+  display: none;
+}
+
+[data-cursor-root][data-label]:not([data-label=""]) {
+  width: 3.5rem;
+  height: 3.5rem;
+  background-color: rgba(141, 37, 43, 0.2);
+}
+
+[data-cursor-root][data-label]:not([data-label=""]) .cursor-label {
+  display: block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+::selection {
+  background-color: rgba(159, 18, 57, 0.35);
+  color: var(--color-off-white);
+}
+
+@keyframes subtle-glow-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.65; }
+}
+
+.animate-glow-pulse {
+  animation: subtle-glow-pulse 3s ease-in-out infinite;
+}
